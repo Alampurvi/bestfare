@@ -2,110 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Book Ticket - BEST AIR TICKETK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Your Flight - BEST AIR TICKET</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
       background: #f4f4f4;
+      margin: 0;
+      padding: 0;
     }
-
     header {
-      background-color: #004aad;
+      background-color: #164ec0;
       color: white;
+      padding: 20px;
       text-align: center;
-      padding: 20px 10px;
-    }
-
-    .booking-form {
-      background: white;
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .booking-form h2 {
-      text-align: center;
-      margin-bottom: 25px;
-      color: #004aad;
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
+      font-size: 24px;
       font-weight: bold;
     }
-
-    input, select {
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #164ec0;
+    }
+    input, select, button {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
+      margin: 10px 0;
+      border-radius: 5px;
       border: 1px solid #ccc;
-      border-radius: 6px;
     }
-
     button {
-      margin-top: 25px;
-      width: 100%;
-      padding: 12px;
-      background-color: #004aad;
+      background-color: #164ec0;
       color: white;
-      border: none;
-      font-size: 16px;
-      border-radius: 6px;
+      font-weight: bold;
       cursor: pointer;
+      border: none;
     }
-
     button:hover {
-      background-color: #003580;
-    }
-
-    footer {
-      background-color: #003580;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 50px;
+      background-color: #0d3a8e;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Book Your Flight - BEST AIR TICKET</h1>
-  </header>
-
-  <div class="booking-form">
+  <header>Book Your Flight - BEST AIR TICKET</header>
+  <div class="container">
     <h2>Flight Ticket Booking</h2>
-    <form>
+    <form id="bookingForm">
       <label for="from">From</label>
-      <input type="text" id="from" name="from" placeholder="e.g. Dubai (DXB)" required />
+      <input type="text" id="from" placeholder="e.g. Dubai (DXB)" required />
 
       <label for="to">To</label>
-      <input type="text" id="to" name="to" placeholder="e.g. Delhi (DEL)" required />
+      <input type="text" id="to" placeholder="e.g. Delhi (DEL)" required />
 
-      <label for="departure">Departure Date</label>
-      <input type="date" id="departure" name="departure" required />
+      <label for="depart-date">Departure Date</label>
+      <input type="date" id="depart-date" required />
 
-      <label for="return">Return Date (optional)</label>
-      <input type="date" id="return" name="return" />
+      <label for="return-date">Return Date (optional)</label>
+      <input type="date" id="return-date" />
 
       <label for="passengers">Passengers</label>
-      <select id="passengers" name="passengers">
+      <select id="passengers">
         <option>1 Adult</option>
         <option>2 Adults</option>
         <option>3 Adults</option>
-        <option>1 Adult, 1 Child</option>
-        <option>2 Adults, 2 Children</option>
+        <option>4+ Adults</option>
       </select>
 
       <label for="class">Class</label>
-      <select id="class" name="class">
+      <select id="class">
         <option>Economy</option>
-        <option>Premium Economy</option>
         <option>Business</option>
         <option>First Class</option>
       </select>
@@ -114,9 +87,28 @@
     </form>
   </div>
 
-  <footer>
-    <p>&copy; 2025 BEST AIR TICKET. All rights reserved.</p>
-  </footer>
+  <script>
+    document.getElementById("bookingForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const from = document.getElementById("from").value.trim();
+      const to = document.getElementById("to").value.trim();
+      const depart = document.getElementById("depart-date").value;
 
+      if (!from || !to || !depart) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      const fromCode = from.match(/\(([^)]+)\)/);
+      const toCode = to.match(/\(([^)]+)\)/);
+      if (!fromCode || !toCode) {
+        alert("Please enter airport codes in brackets. Example: Dubai (DXB)");
+        return;
+      }
+
+      const query = `https://www.google.com/flights?hl=en#flt=${fromCode[1]}.${toCode[1]}.${depart}`;
+      window.open(query, "_blank");
+    });
+  </script>
 </body>
 </html>
