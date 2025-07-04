@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Book Ticket - BSEFARE AIR TICK</title>
+  <title>Book Ticket - BEST AIR TICKETK</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -48,4 +48,75 @@
     }
 
     button {
-      margin-top:
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      background-color: #004aad;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #003580;
+    }
+
+    footer {
+      background-color: #003580;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Book Your Flight - BEST AIR TICKET</h1>
+  </header>
+
+  <div class="booking-form">
+    <h2>Flight Ticket Booking</h2>
+    <form>
+      <label for="from">From</label>
+      <input type="text" id="from" name="from" placeholder="e.g. Dubai (DXB)" required />
+
+      <label for="to">To</label>
+      <input type="text" id="to" name="to" placeholder="e.g. Delhi (DEL)" required />
+
+      <label for="departure">Departure Date</label>
+      <input type="date" id="departure" name="departure" required />
+
+      <label for="return">Return Date (optional)</label>
+      <input type="date" id="return" name="return" />
+
+      <label for="passengers">Passengers</label>
+      <select id="passengers" name="passengers">
+        <option>1 Adult</option>
+        <option>2 Adults</option>
+        <option>3 Adults</option>
+        <option>1 Adult, 1 Child</option>
+        <option>2 Adults, 2 Children</option>
+      </select>
+
+      <label for="class">Class</label>
+      <select id="class" name="class">
+        <option>Economy</option>
+        <option>Premium Economy</option>
+        <option>Business</option>
+        <option>First Class</option>
+      </select>
+
+      <button type="submit">Search Flights</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 BEST AIR TICKET. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
