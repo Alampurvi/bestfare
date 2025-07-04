@@ -1,58 +1,60 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BEST AIR TICKET</title>
+  <title>BEST AIR TICKET - Home</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: #f2f2f2;
-    }
-
-    header {
-      background: #004aad;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .menu-boxes {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 40px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
+    * {margin: 0;padding: 0;box-sizing: border-box;font-family: Arial, sans-serif;}
+    body {background: #f2f2f2;}
+    header {background: #004aad;color: #fff;padding: 20px;text-align: center;}
+    .menu-boxes {display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;padding: 20px;}
     .box {
       background: white;
-      padding: 30px;
+      padding: 20px 25px;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       text-align: center;
       text-decoration: none;
       color: #004aad;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
       transition: 0.3s ease;
     }
-
-    .box:hover {
-      background: #004aad;
-      color: white;
-      transform: scale(1.05);
+    .box:hover {background: #004aad;color: white;transform: scale(1.05);}
+    .booking-form {
+      background: white;
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
+    .booking-form h2 {
+      margin-bottom: 20px;
+      color: #004aad;
+      text-align: center;
+    }
+    .booking-form input, .booking-form select, .booking-form button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    .booking-form button {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .booking-form button:hover {
+      background-color: #003580;
+    }
     footer {
       background: #003580;
       color: white;
@@ -65,22 +67,42 @@
 
 <body>
   <header>
-    <h1>BEST AIR TICKET</h1>
-    <p>Book your flights easily - Hindi & English Support</p>
+    <h1>Welcome to BEST AIR TICKET</h1>
+    <p>Search & Book your Flights online</p>
   </header>
 
   <div class="menu-boxes">
-    <a class="box" href="index.html">🏠 Home</a>
-    <a class="box" href="book-ticket.html">🎫 Book Ticket</a>
-    <a class="box" href="offers.html">💰 Offers</a>
-    <a class="box" href="login.html">🔐 Login</a>
-    <a class="box" href="admin-panel.html">🛠 Admin Panel</a>
-    <a class="box" href="contact.html">📩 Contact</a>
+    <a class="box" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+    <a class="box" href="#"><i class="fa-solid fa-ticket"></i> Book Ticket</a>
+    <a class="box" href="#"><i class="fa-solid fa-sack-dollar"></i> Offers</a>
+    <a class="box" href="#"><i class="fa-solid fa-lock"></i> Login</a>
+    <a class="box" href="#"><i class="fa-solid fa-tools"></i> Admin Panel</a>
+    <a class="box" href="#"><i class="fa-solid fa-envelope"></i> Contact</a>
+  </div>
+
+  <div class="booking-form">
+    <h2>Flight Ticket Booking</h2>
+    <form>
+      <input type="text" placeholder="From (e.g. Dubai (DXB))" required>
+      <input type="text" placeholder="To (e.g. Delhi (DEL))" required>
+      <input type="date" required>
+      <input type="date" placeholder="Return Date (optional)">
+      <select>
+        <option>1 Adult</option>
+        <option>2 Adults</option>
+        <option>3 Adults</option>
+      </select>
+      <select>
+        <option>Economy</option>
+        <option>Business</option>
+        <option>First Class</option>
+      </select>
+      <button type="submit">Search Flights</button>
+    </form>
   </div>
 
   <footer>
     <p>&copy; 2025 BEST AIR TICKET | All Rights Reserved</p>
   </footer>
 </body>
-
 </html>
